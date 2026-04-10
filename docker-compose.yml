@@ -6,10 +6,8 @@ services:
     container_name: fastapi-app
     ports:
       - "8000:8000"
-    environment:
-      - API_KEY=demo-key
-      - JWT_SECRET_KEY=secret
-      - REDIS_URL=redis://redis:6379
+    env_file:
+      - .env
     depends_on:
       - redis
       - prometheus
